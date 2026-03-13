@@ -1,6 +1,0 @@
-artifact_location: file:///mnt/scratch1/ashkanm/move2scratch/mithlesh/BERNN/BERNN_MSMS/mlruns/202748368419251218
-creation_time: 1772447011079
-experiment_id: '202748368419251218'
-last_update_time: 1772447011079
-lifecycle_stage: active
-name: modern_ae_then_classifier
