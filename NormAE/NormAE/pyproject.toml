@@ -1,0 +1,43 @@
+[build-system]
+requires = ["setuptools", "cython", "setuptools-scm"]  # 如果使用setup.py并且其中需要运行的包，都需要放在这里
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "normae"
+authors = [
+  {name = "Rong Zhiwei", email = "18845728185@163.com"}
+]
+description = "A deep adversarial model that remove the batch effect of untargeted LC-MS metabolomic data."
+keywords = ["bioinformatics", "deep-learning", "adversarial-learning", "metabolomics", "batch-effect"]
+license = {file = "LICENSE"}
+requires-python = ">=3.10"
+readme = "README.md"
+dependencies = [
+  "numpy>=2.2.0",
+  "pandas>=2.2.0",
+  "scipy>=1.14.0",
+  "torch>=2.5.0",
+  "scikit-learn>=1.6.0",
+  "tqdm>=4.67.0",
+  "tensorboard>=2.18.0",
+  "matplotlib>=3.9.0",
+  "seaborn>=0.13.2",
+]
+dynamic = ["version"]
+[project.optional-dependencies]
+develop = [
+    "ipdb",
+    "pytest",
+]
+[project.scripts]
+normae = "normae.cli:app"
+
+[tool.setuptools.packages]
+find = {where = ["src"], namespaces = true}  # namespaces=false will prevent any folder without an __init__.py file
+
+[tool.setuptools_scm]
+# can be empty if no extra settings are needed, presence enables setuptools_scm
+#
+#
+[tool.setuptools.dynamic]
+version = {attr = "normae.__version__"}  # any module attribute compatible with ast.literal_eval
